@@ -1,86 +1,63 @@
 # Valid Anagram
 
-> Mục tiêu: luyện trình bày bài **Valid Anagram** theo format phỏng vấn song ngữ. Đọc từng hàng: hiểu ý tiếng Việt, nói câu tiếng Anh, rồi tự nói lại không nhìn cột EN.
+> Mục tiêu hôm nay: nói rõ cách giải tối ưu bằng 8 câu tiếng Anh đơn giản. Không cần học toàn bộ phần Upgrade ngay.
 
-## 1. Problem snapshot
+## Cách học bài này
 
-| Mục | Nội dung |
-| --- | --- |
-| Bài toán | Kiểm tra hai chuỗi `s` và `t` có phải là anagram của nhau hay không. |
-| Input / output | Input: hai chuỗi. Output: `true` nếu chúng chứa cùng các ký tự với cùng số lần xuất hiện; ngược lại là `false`. |
-| Constraints quan trọng | Phiên bản cơ bản giả sử chỉ có lowercase English letters. |
-| Ý tưởng tối ưu | Đếm tần suất ký tự bằng mảng `int[26]`. |
-| Độ phức tạp | `Time: O(n), Space: O(1)` với alphabet gồm 26 chữ cái thường. |
+1. Đọc phần **Core script** theo từng hàng: hiểu cột VI, rồi nói cột EN.
+2. Khi nói được cả 8 câu mà không nhìn tài liệu, bài hôm nay đã hoàn thành.
+3. Chỉ sau đó mới học phần **Upgrade** nếu bạn còn muốn.
 
-## 2. Interview script
+## 1. Core script — học trước
 
 | Cue | VI | EN |
 | --- | --- | --- |
-| Nhận dạng bài | Em nhận ra đây là một bài toán kinh điển về kiểm tra tần suất ký tự. | I recognize this as a classic character-frequency problem. |
-| Làm rõ giả định | Em giả sử hai chuỗi chỉ gồm các chữ cái tiếng Anh viết thường. | I’ll assume that both strings contain only lowercase English letters. |
-| Kiểm tra sớm | Đầu tiên, nếu hai chuỗi có độ dài khác nhau thì chúng không thể là anagram. | First, if the two strings have different lengths, they cannot be anagrams. |
-| Nêu kế hoạch | Trước khi viết code, em xin trình bày ba hướng tiếp cận, từ đơn giản đến tối ưu. | Before jumping into the code, I’d like to walk through three approaches, from the simplest one to the optimal one. |
-| Cách 1 | Cách đầu tiên là brute force. Với mỗi ký tự của chuỗi thứ nhất, em tìm một ký tự tương ứng chưa được dùng trong chuỗi thứ hai. | The first approach is brute force. For each character in the first string, I look for a matching unused character in the second string. |
-| Phân tích cách 1 | Ở trường hợp xấu nhất, em phải quét chuỗi thứ hai cho từng ký tự của chuỗi thứ nhất, nên time complexity là `O(n²)`. | In the worst case, I scan the second string for every character in the first string, so the time complexity is `O(n²)`. |
-| Trade-off 1 | Cách này trực quan nhưng không scale tốt; em cũng cần theo dõi ký tự nào ở chuỗi thứ hai đã được ghép. | This approach is straightforward, but it does not scale well; I also need to track which characters in the second string have already been matched. |
-| Cách 2 | Một cách tốt hơn là sort cả hai chuỗi rồi so sánh kết quả. Ví dụ, `"abc"` và `"cba"` đều trở thành `"abc"`. | A better approach is to sort both strings and then compare the results. For example, `"abc"` and `"cba"` both become `"abc"`. |
-| Phân tích cách 2 | Nếu hai chuỗi đã sort bằng nhau thì chúng là anagram. Sorting chi phối complexity, nên time complexity là `O(n log n)`. | If the sorted strings are equal, they are anagrams. Sorting dominates the complexity, so the time complexity is `O(n log n)`. |
-| Chuyển ý | Cách này clean, nhưng chúng ta không thực sự quan tâm đến thứ tự ký tự; điều cần biết là số lần xuất hiện của từng ký tự. | This solution is clean, but we do not actually care about character order; what we really care about is the frequency of each character. |
-| Cách tối ưu | Vì vậy, em sẽ dùng frequency counting với một mảng `int[26]`. | So I’ll use frequency counting with an `int[26]` array. |
-| Các bước | Khi duyệt chuỗi thứ nhất, em tăng count của ký tự tương ứng. Khi duyệt chuỗi thứ hai, em giảm count đó. | As I scan the first string, I increment the count for each character. As I scan the second string, I decrement the corresponding count. |
-| Tính đúng đắn | Nếu mọi count đều bằng 0 ở cuối quá trình, mỗi ký tự xuất hiện cùng số lần trong hai chuỗi, nên chúng là anagram. Nếu có một count khác 0, chúng không phải là anagram. | If every count is zero at the end, each character appears the same number of times in both strings, so they are anagrams. If any count is nonzero, they are not anagrams. |
-| Complexity | Ta duyệt mỗi chuỗi một lần, nên time complexity là `O(n)`. Mảng có kích thước cố định là 26, nên space complexity là `O(1)`. | We scan each string once, so the time complexity is `O(n)`. The array has a fixed size of 26, so the space complexity is `O(1)`. |
-| Mở rộng | Nếu character set không bị giới hạn ở lowercase English letters, em sẽ dùng `HashMap` thay cho mảng. Khi đó space complexity là `O(k)`, với `k` là số ký tự phân biệt. | If the character set is not limited to lowercase English letters, I would use a `HashMap` instead of an array. Then the space complexity is `O(k)`, where `k` is the number of distinct characters. |
-| Edge cases | Em đã xử lý trường hợp hai chuỗi có độ dài khác nhau, chuỗi rỗng, và các ký tự lặp lại. | This handles different string lengths, empty strings, and repeated characters. |
-| Chốt | Vì vậy, frequency counting là approach em sẽ implement. | So frequency counting is the approach I would implement. |
+| Bài toán | Bài toán này kiểm tra hai chuỗi có phải là anagram hay không. | This problem checks if two strings are anagrams. |
+| Kiểm tra sớm | Đầu tiên, nếu hai chuỗi có độ dài khác nhau, chúng không phải là anagram. | First, if the strings have different lengths, they are not anagrams. |
+| Cách làm | Em dùng một mảng có kích thước 26 để đếm ký tự. | I use an array of size 26 to count characters. |
+| Chuỗi thứ nhất | Với chuỗi thứ nhất, em tăng count. | For the first string, I increase the count. |
+| Chuỗi thứ hai | Với chuỗi thứ hai, em giảm count. | For the second string, I decrease the count. |
+| Kết quả | Nếu mọi count đều bằng 0, hai chuỗi là anagram. | If all counts are zero, the strings are anagrams. |
+| Time complexity | Ta duyệt cả hai chuỗi một lần, nên time complexity là `O(n)`. | We scan both strings once, so the time complexity is `O(n)`. |
+| Space complexity | Space complexity là `O(1)` vì mảng luôn có 26 phần tử. | The space complexity is `O(1)` because the array always has 26 elements. |
 
-## 3. Approach comparison
+## 2. Core vocabulary — chỉ cần 5 cụm này
 
-| Approach | Ý tưởng | Time | Space | Khi phù hợp / trade-off |
-| --- | --- | --- | --- | --- |
-| Brute force | Với mỗi ký tự ở `s`, tìm một ký tự giống nó chưa dùng ở `t`. | `O(n²)` | `O(n)` | Dễ hình dung nhưng chậm và phải đánh dấu phần tử đã ghép. |
-| Sorting | Sort cả hai chuỗi rồi so sánh. | `O(n log n)` | Phụ thuộc cách sort / bản sao chuỗi | Code gọn, không cần giới hạn alphabet, nhưng làm nhiều hơn cần thiết. |
-| Frequency counting | Tăng count khi duyệt `s`, giảm count khi duyệt `t`. | `O(n)` | `O(1)` với `int[26]` | Tối ưu khi input chỉ gồm lowercase English letters. |
-
-## 4. Vocabulary
-
-| English | Nghĩa tiếng Việt | Cách dùng trong ngữ cảnh |
+| English | Nghĩa tiếng Việt | Câu trong bài |
 | --- | --- | --- |
-| anagram | từ/chuỗi đảo chữ; cùng ký tự với cùng tần suất | `The two strings are anagrams.` |
-| character frequency | tần suất ký tự | `We compare character frequencies.` |
-| matching unused character | ký tự tương ứng chưa được dùng | `I look for a matching unused character.` |
-| increment / decrement | tăng / giảm | `I increment the count for s and decrement it for t.` |
-| dominate | chi phối | `Sorting dominates the complexity.` |
-| distinct | phân biệt, khác nhau | `k is the number of distinct characters.` |
-| fixed size | kích thước cố định | `The array has a fixed size of 26.` |
+| anagram | hai chuỗi có cùng ký tự và số lần xuất hiện | `The strings are anagrams.` |
+| count | đếm / số lượng | `I increase the count.` |
+| increase | tăng | `I increase the count.` |
+| decrease | giảm | `I decrease the count.` |
+| length | độ dài | `The strings have different lengths.` |
 
-## 5. Useful chunks
+## 3. Upgrade — để sau khi Core đã trơn
 
-| Chunk | Nghĩa / mục đích | Biến thể |
-| --- | --- | --- |
-| `I recognize this as a classic character-frequency problem.` | Nhận dạng dạng bài | `This looks like a frequency-counting problem.` |
-| `Before jumping into the code, I’d like to walk through ...` | Dẫn vào các hướng giải | `Before implementing, let me compare ...` |
-| `In the worst case, ...` | Phân tích trường hợp xấu nhất | `At worst, ...` |
-| `What we really care about is ...` | Nêu insight chính | `The key observation is that ...` |
-| `If every count is zero at the end, ...` | Giải thích điều kiện đúng | `When all counts return to zero, ...` |
-| `Sorting dominates the complexity.` | Nêu bottleneck | `The sorting step is the bottleneck.` |
+### Approach 1: Brute force
 
-## 6. Key sentence structures
+| VI | EN |
+| --- | --- |
+| Một cách đơn giản là, với mỗi ký tự trong chuỗi thứ nhất, tìm một ký tự giống nó chưa được dùng trong chuỗi thứ hai. | A simple approach is to find a matching unused character in the second string for each character in the first string. |
+| Ở trường hợp xấu nhất, ta quét chuỗi thứ hai cho mỗi ký tự của chuỗi thứ nhất. Vì vậy, time complexity là `O(n²)`. | In the worst case, we scan the second string for every character in the first string. So the time complexity is `O(n²)`. |
 
-| Mục đích | Cấu trúc | Ví dụ trong bài |
-| --- | --- | --- |
-| Nêu giả định | `I’ll assume that + clause.` | `I’ll assume that both strings contain only lowercase English letters.` |
-| Loại trừ sớm | `If + clause, + result.` | `If the two strings have different lengths, they cannot be anagrams.` |
-| Nêu cách làm | `For each + noun, I + verb.` | `For each character in the first string, I look for a match.` |
-| Nêu lý do | `Because + clause, + result.` | `Because the array size is fixed, the space complexity is O(1).` |
-| Nêu điều kiện | `If + present simple, + present simple.` | `If every count is zero, the strings are anagrams.` |
-| Đưa phương án thay thế | `If + constraint changes, I would + verb.` | `If the character set is not limited, I would use a HashMap.` |
+### Approach 2: Sorting
 
-## 7. Self-practice checklist
+| VI | EN |
+| --- | --- |
+| Một cách khác là sort cả hai chuỗi và so sánh chúng. | Another approach is to sort both strings and compare them. |
+| Sorting chi phối complexity, nên time complexity là `O(n log n)`. | Sorting takes the most time, so the time complexity is `O(n log n)`. |
 
-- [ ] Tóm tắt bài toán và assumption về lowercase letters trong 30 giây.
-- [ ] Giải thích được vì sao brute force phải đánh dấu ký tự đã ghép.
-- [ ] So sánh được ba approaches và complexity của từng cách.
-- [ ] Chứng minh được điều kiện “mọi count bằng 0”.
-- [ ] Nêu được khi nào cần chuyển từ `int[26]` sang `HashMap`.
-- [ ] Nói lại toàn bộ cột EN mà không nhìn cột VI.
+### Cách nói thêm khi đã thoải mái
+
+| VI | EN |
+| --- | --- |
+| Ta không cần quan tâm đến thứ tự ký tự; ta chỉ cần số lần xuất hiện của chúng. | We do not care about the order of the characters. We only care about how many times each character appears. |
+| Nếu input không chỉ có chữ cái thường, em sẽ dùng `HashMap` thay cho mảng. | If the input has more than lowercase letters, I would use a `HashMap` instead of an array. |
+| Điều này đưa time complexity xuống `O(n)`. | This brings the time complexity down to `O(n)`. |
+
+## 4. Checklist nhẹ nhàng
+
+- [ ] Em nói được 8 câu Core mà không nhìn cột VI hoặc EN.
+- [ ] Em hiểu và dùng được 5 cụm từ trong Core vocabulary.
+- [ ] Em tự giải thích bằng tiếng Việt được vì sao mọi count phải bằng 0.
+- [ ] Nếu còn sức, em học thêm một câu ở phần Upgrade.

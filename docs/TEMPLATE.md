@@ -1,82 +1,61 @@
 # [TÊN BÀI TOÁN]
 
-> Mục tiêu: dùng tài liệu này để luyện trình bày một bài coding interview bằng tiếng Anh. Đọc theo từng hàng: hiểu ý tiếng Việt, nói câu tiếng Anh, rồi tự nói lại không nhìn cột EN.
+> Mục tiêu của một bài: nói rõ được **một cách giải tối ưu** bằng tiếng Anh đơn giản. Không cần học hết trang trong một lần.
 
-## 1. Problem snapshot
+## Cách học tài liệu này
 
-| Mục | Nội dung |
-| --- | --- |
-| Bài toán | `[Problem Name]` |
-| Input / output | `[Mô tả ngắn input và output]` |
-| Constraints quan trọng | `[Ví dụ: lowercase English letters, n <= ...]` |
-| Ý tưởng tối ưu | `[Ví dụ: frequency counting]` |
-| Độ phức tạp | `Time: O(...), Space: O(...)` |
+1. Chỉ học phần **Core** trước: nói được 6–8 câu không nhìn cột EN.
+2. Mỗi lần chỉ chọn tối đa 3–5 từ hoặc cụm từ mới.
+3. Khi Core đã trơn, mới xem phần **Upgrade**. Phần này là lựa chọn, không phải bài kiểm tra.
 
-## 2. Interview script
+## 1. Core script — học trước
 
-> Thay `[ ... ]` bằng nội dung của bài. Cột **Cue** là nhắc nhanh khi đang luyện; không cần đọc thành tiếng trong phỏng vấn.
+> Thay nội dung trong `[ ... ]`. Cột **Cue** chỉ để nhắc ý, không cần đọc khi phỏng vấn.
 
 | Cue | VI | EN |
 | --- | --- | --- |
-| Nhận dạng bài | Em nhận ra đây là một bài toán kinh điển về `[pattern/problem type]`. | I recognize this as a classic `[pattern/problem type]` problem. |
-| Làm rõ giả định | Trước khi bắt đầu, em muốn xác nhận rằng `[assumption/constraint]`. | Before I start, I’d like to confirm that `[assumption/constraint]`. |
-| Nêu kế hoạch | Trước khi viết code, em xin trình bày các hướng tiếp cận, từ đơn giản đến tối ưu. | Before jumping into the code, I’d like to walk through the approaches, from the simplest one to the optimal one. |
-| Cách 1 | Cách đầu tiên là `[approach 1]`. Ý tưởng là `[core idea]`. | The first approach is `[approach 1]`. The idea is to `[core idea]`. |
-| Phân tích cách 1 | Trong trường hợp xấu nhất, `[reason]`, nên time complexity là `O(...)`. | In the worst case, `[reason]`, so the time complexity is `O(...)`. |
-| Trade-off 1 | Cách này trực quan nhưng `[limitation]`. | This approach is straightforward, but `[limitation]`. |
-| Cách 2 | Một cách tốt hơn là `[approach 2]`. | A better approach is `[approach 2]`. |
-| Phân tích cách 2 | Bước `[operation]` chi phối complexity, nên time complexity là `O(...)`. | The `[operation]` step dominates the complexity, so the time complexity is `O(...)`. |
-| Chuyển ý | Tuy nhiên, điều bài toán thực sự cần là `[essential property]`. | However, what we really care about is `[essential property]`. |
-| Cách tối ưu | Vì vậy, em sẽ dùng `[optimal approach]`. | So I’ll use `[optimal approach]`. |
-| Các bước | Đầu tiên, em `[step 1]`. Sau đó, em `[step 2]`. Cuối cùng, em `[step 3]`. | First, I `[step 1]`. Then, I `[step 2]`. Finally, I `[step 3]`. |
-| Tính đúng đắn | Nếu `[condition]`, thì `[conclusion]`; ngược lại, `[failure condition]`. | If `[condition]`, then `[conclusion]`; otherwise, `[failure condition]`. |
-| Complexity | Ta duyệt input `[number]` lần, nên time complexity là `O(...)`. Space complexity là `O(...)` vì `[reason]`. | We scan the input `[number]` time(s), so the time complexity is `O(...)`. The space complexity is `O(...)` because `[reason]`. |
-| Edge cases | Em cũng sẽ xử lý các edge case như `[case 1]` và `[case 2]`. | I’ll also handle edge cases such as `[case 1]` and `[case 2]`. |
-| Chốt | Vì vậy, đây là approach em sẽ implement. | So this is the approach I would implement. |
+| Bài toán | Bài toán này yêu cầu `[mô tả ngắn mục tiêu]`. | This problem asks us to `[short goal]`. |
+| Kiểm tra sớm | Đầu tiên, nếu `[early condition]`, thì `[result]`. | First, if `[early condition]`, then `[result]`. |
+| Cách làm | Em dùng `[data structure / approach]` để `[purpose]`. | I use `[data structure / approach]` to `[purpose]`. |
+| Bước 1 | Với `[first input / action]`, em `[step 1]`. | For `[first input / action]`, I `[step 1]`. |
+| Bước 2 | Với `[second input / action]`, em `[step 2]`. | For `[second input / action]`, I `[step 2]`. |
+| Điều kiện kết quả | Nếu `[condition]`, thì `[answer]`. | If `[condition]`, then `[answer]`. |
+| Time complexity | Ta duyệt input một lần, nên time complexity là `O(...)`. | We scan the input once, so the time complexity is `O(...)`. |
+| Space complexity | Space complexity là `O(...)` vì `[reason]`. | The space complexity is `O(...)` because `[reason]`. |
 
-## 3. Approach comparison
+## 2. Core vocabulary — chọn tối đa 5 mục
 
-| Approach | Ý tưởng | Time | Space | Khi phù hợp / trade-off |
-| --- | --- | --- | --- | --- |
-| Brute force | `[idea]` | `O(...)` | `O(...)` | `[trade-off]` |
-| Better | `[idea]` | `O(...)` | `O(...)` | `[trade-off]` |
-| Optimal | `[idea]` | `O(...)` | `O(...)` | `[why chosen]` |
-
-## 4. Vocabulary
-
-| English | Nghĩa tiếng Việt | Cách dùng trong ngữ cảnh |
+| English | Nghĩa tiếng Việt | Câu dễ dùng |
 | --- | --- | --- |
-| constraint | ràng buộc | `Given the constraint that ...` |
-| straightforward | trực quan, dễ hiểu | `This approach is straightforward.` |
-| dominate | chi phối | `Sorting dominates the complexity.` |
-| frequency | tần suất / số lần xuất hiện | `We only care about character frequency.` |
-| trade-off | sự đánh đổi | `The trade-off is extra space.` |
-| edge case | trường hợp biên | `Let’s consider an edge case.` |
+| input | dữ liệu đầu vào | `We scan the input once.` |
+| count | đếm / số lượng | `I count each character.` |
+| check | kiểm tra | `We check every count.` |
+| increase / decrease | tăng / giảm | `I increase the count.` |
+| result | kết quả | `Then we return the result.` |
 
-## 5. Useful chunks
+## 3. Upgrade — chỉ học sau khi Core đã trơn
 
-| Chunk | Nghĩa / mục đích | Biến thể |
+### So sánh approaches
+
+| Cue | VI | EN |
 | --- | --- | --- |
-| `I recognize this as a classic ... problem.` | Nhận dạng dạng bài | `This looks like a ... problem.` |
-| `Before jumping into the code, I’d like to ...` | Dẫn vào phần giải thích | `Before implementing, let me ...` |
-| `In the worst case, ...` | Phân tích trường hợp xấu nhất | `At worst, ...` |
-| `What we really care about is ...` | Nêu tính chất cốt lõi | `The key observation is that ...` |
-| `This gives us O(...) time.` | Kết luận complexity | `Therefore, the time complexity is O(...).` |
+| Nêu phương án khác | Một cách khác là `[approach]`. | Another approach is `[approach]`. |
+| Điểm yếu | Cách này dễ hiểu, nhưng `[limitation]`. | This approach is simple, but `[limitation]`. |
+| Complexity | Vì vậy, time complexity là `O(...)`. | So the time complexity is `O(...)`. |
+| Lý do chọn cách tối ưu | Cách này tốt hơn vì `[reason]`. | This approach is better because `[reason]`. |
 
-## 6. Key sentence structures
+### Cụm câu nâng cao, không bắt buộc
 
-| Mục đích | Cấu trúc | Ví dụ |
-| --- | --- | --- |
-| Nêu giả định | `I’d like to confirm that + clause.` | `I’d like to confirm that the input contains only lowercase letters.` |
-| Giải thích lý do | `Because + clause, ...` | `Because the array size is fixed, the space complexity is O(1).` |
-| So sánh | `A better approach is to + verb.` | `A better approach is to sort both strings.` |
-| Điều kiện | `If + present simple, ...` | `If every count is zero, the strings are anagrams.` |
-| Chuyển ý | `However, what we really care about is + noun phrase.` | `However, what we really care about is character frequency.` |
+| Chunk | Nghĩa |
+| --- | --- |
+| `Before I start coding, I’d like to explain the approaches first.` | Dẫn vào phần giải thích các cách làm. |
+| `In the worst case, ...` | Nói về trường hợp xấu nhất. |
+| `What we really care about is ...` | Nêu insight chính. |
+| `This brings the time complexity down to O(...).` | Nhấn mạnh việc tối ưu complexity. |
 
-## 7. Self-practice checklist
+## 4. Checklist nhẹ nhàng
 
-- [ ] Nói được phần tóm tắt bài toán và các assumptions trong 30 giây.
-- [ ] So sánh được ít nhất hai approaches, kèm time/space complexity.
-- [ ] Giải thích được vì sao approach tối ưu là đúng.
-- [ ] Nêu được edge cases và ảnh hưởng của constraints.
-- [ ] Nói lại toàn bộ cột EN mà không nhìn cột VI.
+- [ ] Em nói được Core script mà không nhìn tiếng Việt.
+- [ ] Em hiểu và dùng được 3–5 từ mới đã chọn.
+- [ ] Em giải thích được bằng tiếng Việt tại sao cách làm này đúng.
+- [ ] Nếu còn sức, em học thêm **một** câu ở phần Upgrade.
