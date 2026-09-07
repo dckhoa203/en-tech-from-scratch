@@ -69,7 +69,7 @@
 
 | Mục đích | Cấu trúc | Ví dụ trong bài |
 | --- | --- | --- |
-| Nêu giả định | `I’ll assume that + clause.` | `I assume that both strings contain only lowercase English letters.` |
+| Nêu giả định | `I assume that + clause.` | `I assume that both strings contain only lowercase English letters.` |
 | Loại trừ sớm | `If + clause, + result.` | `If the two strings have different lengths, they cannot be anagrams.` |
 | Nêu cách làm | `For each + noun, I + verb.` | `For each character in the first string, I look for a match.` |
 | Nêu lý do | `Because + clause, + result.` | `Because the array size is fixed, the space complexity is O(1).` |
