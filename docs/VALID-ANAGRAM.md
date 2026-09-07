@@ -25,7 +25,7 @@
 | Trade-off 1 | Cách này trực quan nhưng không scale tốt; em cũng cần theo dõi ký tự nào ở chuỗi thứ hai đã được ghép. | This approach is straightforward, but it does not scale well; I also need to track which characters in the second string have already been matched. |
 | Cách 2 | Một cách tốt hơn là sort cả hai chuỗi rồi so sánh kết quả. Ví dụ, `"abc"` và `"cba"` đều trở thành `"abc"`. | A better approach is to sort both strings and then compare the results. For example, `"abc"` and `"cba"` both become `"abc"`. |
 | Phân tích cách 2 | Nếu hai chuỗi đã sort bằng nhau thì chúng là anagram. Sorting chi phối complexity, nên time complexity là `O(n log n)`. | If the sorted strings are equal, they are anagrams. Sorting dominates the complexity, so the time complexity is `O(n log n)`. |
-| Chuyển ý | Cách này clean, nhưng chúng ta không thực sự quan tâm đến thứ tự ký tự; điều cần biết là số lần xuất hiện của từng ký tự. | This solution is clean, but we do not actually care about character order; what we really care about is the frequency of each character. |
+| Chuyển ý | Cách này clean, nhưng chúng ta không thực sự quan tâm đến thứ tự ký tự; điều cần biết là số lần xuất hiện của từng ký tự. | This solution is clean, but we do not actually care about character order. We really care about is the frequency of each character.. |
 | Cách tối ưu | Vì vậy, em sẽ dùng frequency counting với một mảng `int[26]`. | So I’ll use frequency counting with an `int[26]` array. |
 | Các bước | Khi duyệt chuỗi thứ nhất, em tăng count của ký tự tương ứng. Khi duyệt chuỗi thứ hai, em giảm count đó. | As I scan the first string, I increment the count for each character. As I scan the second string, I decrement the corresponding count. |
 | Tính đúng đắn | Nếu mọi count đều bằng 0 ở cuối quá trình, mỗi ký tự xuất hiện cùng số lần trong hai chuỗi, nên chúng là anagram. Nếu có một count khác 0, chúng không phải là anagram. | If every count is zero at the end, each character appears the same number of times in both strings, so they are anagrams. If any count is nonzero, they are not anagrams. |
@@ -69,7 +69,7 @@
 
 | Mục đích | Cấu trúc | Ví dụ trong bài |
 | --- | --- | --- |
-| Nêu giả định | `I’ll assume that + clause.` | `I’ll assume that both strings contain only lowercase English letters.` |
+| Nêu giả định | `I’ll assume that + clause.` | `I assume that both strings contain only lowercase English letters.` |
 | Loại trừ sớm | `If + clause, + result.` | `If the two strings have different lengths, they cannot be anagrams.` |
 | Nêu cách làm | `For each + noun, I + verb.` | `For each character in the first string, I look for a match.` |
 | Nêu lý do | `Because + clause, + result.` | `Because the array size is fixed, the space complexity is O(1).` |
