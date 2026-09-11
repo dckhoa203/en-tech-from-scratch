@@ -26,6 +26,42 @@
              Thuật ngữ CS chuẩn · Văn phong tốt hơn · Diễn đạt sâu hơn
 ```
 
+## A lesson teaches spoken reasoning, not isolated sentences / Một bài học luyện lập luận khi nói, không chỉ học câu rời
+
+The key pattern behind a clear technical explanation is:
+
+```text
+Actor → Action → Mechanism → Result
+```
+
+In an interview answer, that can become:
+
+```text
+Database query → becomes slow → requests hold connections longer → connection pool is exhausted
+```
+
+or, in an algorithm lesson:
+
+```text
+First string → increases each count → matching characters cancel with the second string → every count returns to zero
+```
+
+**EN:** Do not merely name a technology or an approach. Say what causes the change, how it happens, and what result it creates.
+
+**VI:** Đừng chỉ gọi tên một công nghệ hay cách làm. Hãy nói rõ cái gì tạo tác động, tác động diễn ra thế nào, và kết quả là gì.
+
+This is why every lesson should make the reasoning chain visible. Strong technical speaking is usually clearer causal reasoning, not simply more advanced vocabulary.
+
+## Thought groups and sentence stress / Cụm ý và trọng âm câu
+
+Each Core lesson includes an **EN — Thought Group** column.
+
+- `|` means a short pause between idea groups.
+- **Bold** marks the main information word in that group. Stress it with a little more length and pitch, not only more volume.
+- Keep function words light. Do not give every word the same weight.
+
+Start with clarity, then rhythm, and only then speed. A useful practice loop is: understand the VI meaning → say the EN sentence → say the Thought Group version → record one short take and listen for the key words.
+
 ## 1. Core — Speak smoothly first, perfect later / Nói trơn trước, hoàn hảo sau
 
 > **EN — Goal:** Explain the optimal algorithm in **six to eight short sentences** without getting stuck.
@@ -76,8 +112,9 @@
 | --- | --- | --- |
 | 1 | Read the Vietnamese meaning in the Core script. | Đọc ý nghĩa tiếng Việt trong Core script. |
 | 2 | Say the English sentence aloud. | Nói to câu tiếng Anh. |
-| 3 | Repeat until you can explain the full Core script without looking. | Lặp lại đến khi bạn nói được toàn bộ Core script mà không nhìn. |
-| 4 | Stop there, or learn one small item from Upgrade if you still have energy. | Dừng ở đó, hoặc học thêm một mục nhỏ trong Upgrade nếu bạn còn sức. |
+| 3 | Say it again with the thought groups and stressed keywords. | Nói lại theo cụm ý và các từ khóa cần nhấn. |
+| 4 | Repeat until you can explain the full Core script without looking. | Lặp lại đến khi bạn nói được toàn bộ Core script mà không nhìn. |
+| 5 | Stop there, or learn one small item from Upgrade if you still have energy. | Dừng ở đó, hoặc học thêm một mục nhỏ trong Upgrade nếu bạn còn sức. |
 
 > **EN:** The objective is not to sound advanced. The objective is to explain your idea clearly, correctly, and with confidence.
 >
